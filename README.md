@@ -1,16 +1,104 @@
-# React + Vite
+# ✈️ Sistema de Cadastro de Aeronaves
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação fullstack para gerenciamento de aeronaves, com funcionalidades completas de **CRUD (Create, Read, Update, Delete)**.
 
-Currently, two official plugins are available:
+O projeto é dividido em:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+* 🔹 Frontend em **React**
+* 🔹 Backend em **Spring Boot**
+* 🔹 Banco de dados **PostgreSQL**
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Funcionalidades
 
-## Expanding the ESLint configuration
+* ✅ Cadastrar aeronaves
+* ✅ Listar aeronaves
+* ✅ Editar informações
+* ✅ Excluir registros
+* ✅ Interface responsiva com Bootstrap
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🖥️ Tecnologias Utilizadas
+
+### 🔹 Frontend
+
+* React
+* Axios
+* React Router DOM
+* Bootstrap
+
+### 🔹 Banco de Dados
+
+* PostgreSQL
+
+---
+
+## 📂 Estrutura do Projeto
+
+### 📁 Frontend
+
+```
+src/
+ ├── components/
+ │    ├── AircraftForm.jsx
+ │    ├── AircraftList.jsx
+ │    └── Navbar.jsx
+ │
+ ├── pages/
+ │    ├── Home.jsx
+ │    └── Listing.jsx
+ │
+ ├── routes/
+ │    └── AppRoutes.jsx
+ │
+ ├── services/
+ │    └── api.js
+```
+
+---
+
+## 🔗 Endpoints da API
+
+| Método | Rota            | Descrição          |
+| ------ | --------------- | ------------------ |
+| GET    | /aeronaves      | Listar aeronaves   |
+| POST   | /aeronaves      | Criar aeronave     |
+| PUT    | /aeronaves/{id} | Atualizar aeronave |
+| DELETE | /aeronaves/{id} | Deletar aeronave   |
+
+## 📸 Interface
+
+* Formulário para cadastro e edição
+* Tabela com listagem de aeronaves
+* Botões de ação (Editar / Excluir)
+
+---
+
+## 🧠 Aprendizados
+
+Este projeto demonstra conceitos importantes como:
+
+* Integração entre frontend e backend
+* Consumo de APIs com Axios
+* Gerenciamento de estado com React Hooks
+* Estruturação de aplicações fullstack
+
+---
+
+## 📌 Melhorias Futuras
+
+* 🔍 Filtro e busca de aeronaves
+* 📄 Paginação
+* 🔔 Notificações (toast)
+* 🔐 Autenticação de usuários
+* 🎨 Interface estilo dashboard
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por Enzo Borges 
+
+
