@@ -1,34 +1,84 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function AircraftForm() {
+export default function AircraftForm({ onSave, editData }) {
   const [form, setForm] = useState({
-    nome: "",
-    modelo: "",
-    fabricante: "",
-    ano: ""
+    name: "",
+    model: "",
+    manufacturer: "",
+    year: ""
   });
 
+  useEffect(() => {
+    if (editData) {
+      setForm(editData);
+    }
+  }, [editData]);
+
   function handleChange(e) {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    setForm({
+      ...form,
+      [name]: name === "year" ? Number(value) : value
+    });
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(form); // depois conecta com API
+    onSave(form);
+
+    if (!editData) {
+      setForm({
+        name: "",
+        model: "",
+        manufacturer: "",
+        year: ""
+      });
+    }
   }
 
   return (
-    <div className="container mt-4">
-      <h2 className="title">Cadastro de Aeronave</h2>
+    <form onSubmit={handleSubmit}>
+      <h5 className="mb-3">
+        {editData ? "✏️ Editar Aeronave" : "➕ Nova Aeronave"}
+      </h5>
 
-      <form onSubmit={handleSubmit}>
-        <input className="form-control mb-2" name="nome" placeholder="Nome" onChange={handleChange} />
-        <input className="form-control mb-2" name="modelo" placeholder="Modelo" onChange={handleChange} />
-        <input className="form-control mb-2" name="fabricante" placeholder="Fabricante" onChange={handleChange} />
-        <input className="form-control mb-2" name="ano" placeholder="Ano" onChange={handleChange} />
+      <input
+        className="form-control mb-2"
+        name="name"
+        value={form.name}
+        onChange={handleChange}
+        placeholder="Nome"
+      />
 
-        <button className="btn btn-primary">Salvar</button>
-      </form>
-    </div>
+      <input
+        className="form-control mb-2"
+        name="model"
+        value={form.model}
+        onChange={handleChange}
+        placeholder="Modelo"
+      />
+
+      <input
+        className="form-control mb-2"
+        name="manufacturer"
+        value={form.manufacturer}
+        onChange={handleChange}
+        placeholder="Fabricante"
+      />
+
+      <input
+        type="number"
+        className="form-control mb-3"
+        name="year"
+        value={form.year}
+        onChange={handleChange}
+        placeholder="Ano"
+      />
+
+      <button className="btn btn-primary w-100">
+        {editData ? "Atualizar" : "Salvar"}
+      </button>
+    </form>
   );
 }
